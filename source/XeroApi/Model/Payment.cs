@@ -1,8 +1,9 @@
 using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Payment : EndpointModelBase
+    public class Payment : EndpointModelBase, IDsoPayment
     {
         [ItemId]
         public Guid? PaymentID { get; set; }
@@ -22,12 +23,8 @@ namespace XeroApi.Model
         [ItemUpdatedDate]
         public DateTime? UpdatedDateUTC { get; set; }
 
-        public Account Account { get; set; }
+        public IDsoAccount Account { get; set; }
 
-        public Invoice Invoice { get; set; }
-    }
-
-    public class Payments : ModelList<Payment>
-    {
+        public IDsoInvoice Invoice { get; set; }
     }
 }

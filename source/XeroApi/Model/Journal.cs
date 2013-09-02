@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Journal : EndpointModelBase
+    public class Journal : EndpointModelBase, IDsoJournal
     {
 
         [ItemId]
@@ -23,10 +24,5 @@ namespace XeroApi.Model
         {
             return string.Format("Journal:{0}", JournalNumber);
         }
-    }
-    
-
-    public class Journals : ModelList<Journal>
-    {
     }
 }

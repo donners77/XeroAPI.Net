@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class JournalLine : ModelBase
+    public class JournalLine : ModelBase, IDsoJournalLine
     {
         public Guid JournalLineID { get; set; }
 
@@ -28,10 +29,4 @@ namespace XeroApi.Model
         
         public TrackingCategories TrackingCategories { get; set; }
     }
-    
-
-    public class JournalLines : ModelList<JournalLine>
-    {
-    }
-
 }

@@ -1,8 +1,9 @@
 using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class CreditNote : EndpointModelBase
+    public class CreditNote : EndpointModelBase, IDsoCreditNote
     {
         [ItemId]
         public Guid CreditNoteID { get; set; }
@@ -25,7 +26,7 @@ namespace XeroApi.Model
 
         public decimal? CurrencyRate { get; set; }
 
-        public Contact Contact { get; set; }
+        public IDsoContact Contact { get; set; }
 
         public DateTime? Date { get; set; }
 
@@ -35,9 +36,9 @@ namespace XeroApi.Model
 
         public virtual string Status { get; set; }
 
-        public LineAmountType LineAmountTypes { get; set; }
+        public ELineAmountType LineAmountTypes { get; set; }
 
-        public virtual LineItems LineItems { get; set; }
+        public virtual IDsoLineItems LineItems { get; set; }
 
         public virtual decimal? SubTotal { get; set; }
 
@@ -48,9 +49,5 @@ namespace XeroApi.Model
         public virtual string CurrencyCode { get; set; }
 
         public DateTime? FullyPaidOnDate { get; set; }
-    }
-    
-    public class CreditNotes : ModelList<CreditNote>
-    {
     }
 }

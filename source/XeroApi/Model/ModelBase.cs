@@ -1,49 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public abstract class EndpointModelBase : ModelBase
-    {
-        
-    }
-
-    public abstract class ModelBase
+    public abstract class ModelBase : IModelBase
     {
         [XmlAttribute("status")]
-        public ValidationStatus ValidationStatus 
+        public EValidationStatus ValidationStatus 
         { 
             get; 
             set; 
         }
 
-        public List<ValidationError> ValidationErrors
+        public IList<RValidationError> ValidationErrors
         { 
             get;
             set;
         }
         
-        public List<Warning> Warnings
+        public IList<RWarning> Warnings
         {
             get; 
             set;
         }
-    }
-
-    public enum ValidationStatus
-    {
-        OK,
-        WARNING,
-        ERROR
-    }
-
-    public struct Warning
-    {
-        public string Message;
-    }
-
-    public struct ValidationError
-    {
-        public string Message;
     }
 }

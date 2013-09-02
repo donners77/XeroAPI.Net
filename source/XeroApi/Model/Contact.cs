@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Contact : EndpointModelBase
+    public class Contact : EndpointModelBase, IDsoContact
     {
         [ItemId]
         public Guid ContactID { get; set; }
@@ -33,11 +34,11 @@ namespace XeroApi.Model
         
         public string AccountsPayableTaxType { get; set; }
         
-        public Addresses Addresses { get; set; }
+        public IDsoAddresses Addresses { get; set; }
         
-        public Phones Phones { get; set; }
+        public IDsoPhones Phones { get; set; }
         
-        public ContactGroups ContactGroups { get; set; }
+        public IDsoContactGroups ContactGroups { get; set; }
         
         [ReadOnly]
         public bool IsSupplier { get; set; }
@@ -52,9 +53,4 @@ namespace XeroApi.Model
             return string.Format("Contact:{0}", Name);
         }
     }
-
-    public class Contacts : ModelList<Contact>
-    {
-    }
-    
 }

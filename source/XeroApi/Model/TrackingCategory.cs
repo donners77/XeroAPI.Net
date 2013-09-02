@@ -1,8 +1,9 @@
 using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class TrackingCategory : EndpointModelBase
+    public class TrackingCategory : EndpointModelBase, IDsoTrackingCategory
     {
         public string Name { get; set; }
 
@@ -12,24 +13,6 @@ namespace XeroApi.Model
 
         public Guid TrackingCategoryID { get; set; }
 
-        public Options Options { get; set; }
-    }
-
-    
-    public class Option : ModelBase
-    {
-        public Guid? TrackingOptionID { get; set; }
-
-        public string Name { get; set; }
-    }
-
-    
-    public class Options : ModelList<Option>
-    {
-    }
-
-    
-    public class TrackingCategories : ModelList<TrackingCategory>
-    {
+        public IDsoOptions Options { get; set; }
     }
 }

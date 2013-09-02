@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Invoice : EndpointModelBase, IAttachmentParent
+    public class Invoice : EndpointModelBase, IAttachmentParent, IDsoInvoice
     {
         [ItemId]
         public virtual Guid InvoiceID { get; set; }
@@ -18,10 +19,10 @@ namespace XeroApi.Model
         public string Reference { get; set; }
 
         [ReadOnly]
-        public Payments Payments { get; set; }
+        public IDsoPayments Payments { get; set; }
 
         [ReadOnly]
-        public CreditNotes CreditNotes { get; set; }
+        public IDsoCreditNotes CreditNotes { get; set; }
 
         [ReadOnly]
         public decimal? AmountDue { get; set; }
@@ -42,7 +43,7 @@ namespace XeroApi.Model
 
         public decimal? CurrencyRate { get; set; }
 
-        public Contact Contact { get; set; }
+        public IDsoContact Contact { get; set; }
 
         public DateTime? Date { get; set; }
 
@@ -52,9 +53,9 @@ namespace XeroApi.Model
 
         public virtual string Status { get; set; }
 
-        public LineAmountType LineAmountTypes { get; set; }
+        public ELineAmountType LineAmountTypes { get; set; }
 
-        public virtual LineItems LineItems { get; set; }
+        public virtual IDsoLineItems LineItems { get; set; }
 
         public virtual decimal? SubTotal { get; set; }
 
@@ -73,10 +74,5 @@ namespace XeroApi.Model
         {
             return string.Format("Invoice:{0} Id:{1}", InvoiceNumber, InvoiceID);
         }
-    }
-   
-   
-    public class Invoices : ModelList<Invoice>
-    {
     }
 }

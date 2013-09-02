@@ -15,7 +15,7 @@ namespace XeroApi.Model
         
         public string Status { get; set; }
 
-        public LineAmountType LineAmountTypes { get; set; }
+        public ELineAmountType LineAmountTypes { get; set; }
         
         public string Narration { get; set; }
 

@@ -1,9 +1,10 @@
 using System;
 using System.Text;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Phone : ModelBase
+    public class Phone : ModelBase, IDsoPhone
     {
         public string PhoneType { get; set; }
 
@@ -34,9 +35,5 @@ namespace XeroApi.Model
 
             return sb.ToString().TrimEnd(' ');
         }
-    }
-    
-    public class Phones : ModelList<Phone>
-    {
     }
 }

@@ -1,6 +1,8 @@
+using XeroApi.Interface;
+
 namespace XeroApi.Model
 {
-    public class LineItem : ModelBase
+    public class LineItem : ModelBase, IDsoLineItem
     {
         private readonly TrackingCategories _tracking = new TrackingCategories();
 
@@ -16,7 +18,7 @@ namespace XeroApi.Model
 
         public string AccountCode { get; set; }
 
-        public TrackingCategories Tracking { get { return _tracking; } }
+        public IDsoTrackingCategories Tracking { get { return _tracking; } }
 
         public string ItemCode { get; set; }
 
@@ -26,9 +28,5 @@ namespace XeroApi.Model
         {
             return string.Format("LineItem:{0}", Description ?? ItemCode);
         }
-    }
-
-    public class LineItems : ModelList<LineItem>
-    {
     }
 }

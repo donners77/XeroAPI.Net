@@ -1,8 +1,10 @@
 using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class ContactGroup : ModelBase
+
+    public class ContactGroup : ModelBase, IDsoContactGroup
     {
         public Guid ContactGroupID { get; set; }
 
@@ -10,10 +12,6 @@ namespace XeroApi.Model
 
         public string Status { get; set; }
 
-        public Contacts Contacts { get; set; }
-    }
-
-    public class ContactGroups : ModelList<ContactGroup>
-    {
+        public IDsoContacts Contacts { get; set; }
     }
 }

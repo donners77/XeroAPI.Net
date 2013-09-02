@@ -31,7 +31,7 @@ namespace XeroApi.Model
 
         public virtual string Status { get; set; }
 
-        public LineAmountType LineAmountTypes { get; set; }
+        public ELineAmountType LineAmountTypes { get; set; }
 
         public virtual LineItems LineItems { get; set; }
 

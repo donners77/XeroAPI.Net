@@ -10,9 +10,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XeroApi</RootNamespace>
     <AssemblyName>XeroApi</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -53,6 +56,27 @@
     <Compile Include="Integration\NullRateLimiter.cs" />
     <Compile Include="Integration\TrickleRateLimiter.cs" />
     <Compile Include="Integration\ThrottlingIntegrationProxy.cs" />
+    <Compile Include="Interface\EValidationStatus.cs" />
+    <Compile Include="Interface\IDsoExpenseClaims.cs" />
+    <Compile Include="Interface\IDsoAccounts.cs" />
+    <Compile Include="Interface\IDsoContactGroups.cs" />
+    <Compile Include="Interface\IDsoAddresses.cs" />
+    <Compile Include="Interface\IDsoContacts.cs" />
+    <Compile Include="Interface\IDsoCreditNotes.cs" />
+    <Compile Include="Interface\IDsoPayments.cs" />
+    <Compile Include="Interface\IDsoLineItems.cs" />
+    <Compile Include="Interface\IDsoUsers.cs" />
+    <Compile Include="Interface\IDsoReceipts.cs" />
+    <Compile Include="Interface\IDsoPhones.cs" />
+    <Compile Include="Interface\IDsoTrackingCategories.cs" />
+    <Compile Include="Interface\IDsoOptions.cs" />
+    <Compile Include="Interface\IDsoInvoices.cs" />
+    <Compile Include="Interface\IDsoJournalLines.cs" />
+    <Compile Include="Interface\IDsoJournals.cs" />
+    <Compile Include="Interface\IEndpointModelBase.cs" />
+    <Compile Include="Interface\IModelList.cs" />
+    <Compile Include="Interface\RValidationError.cs" />
+    <Compile Include="Interface\RWarning.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Linq\ApiQuery.cs" />
     <Compile Include="Linq\LinqQueryDescription.cs" />
@@ -61,30 +85,63 @@
     <Compile Include="Exceptions\ApiResponseException.cs" />
     <Compile Include="MimeTypes.cs" />
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Accounts.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Addresses.cs" />
     <Compile Include="Model\ApiException.cs" />
     <Compile Include="Model\Attachment.cs" />
     <Compile Include="Model\BankTransaction.cs" />
     <Compile Include="Model\BrandingTheme.cs" />
     <Compile Include="Model\ContactGroup.cs" />
+    <Compile Include="Model\ContactGroups.cs" />
+    <Compile Include="Model\Contacts.cs" />
     <Compile Include="Model\CreditNote.cs" />
+    <Compile Include="Model\CreditNotes.cs" />
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\EndpointModelBase.cs" />
     <Compile Include="Model\ExpenseClaim.cs" />
+    <Compile Include="Interface\IDsoInvoice.cs" />
+    <Compile Include="Interface\IDsoCreditNote.cs" />
+    <Compile Include="Interface\IDsoPayment.cs" />
+    <Compile Include="Interface\IModelBase.cs" />
+    <Compile Include="Interface\IDsoContact.cs" />
+    <Compile Include="Interface\IDsoLineItem.cs" />
+    <Compile Include="Interface\IDsoUser.cs" />
+    <Compile Include="Interface\IDsoReceipt.cs" />
+    <Compile Include="Interface\IDsoAddress.cs" />
+    <Compile Include="Interface\IDsoPhone.cs" />
+    <Compile Include="Interface\IDsoContactGroup.cs" />
+    <Compile Include="Interface\IDsoOption.cs" />
+    <Compile Include="Interface\IDsoTrackingCategory.cs" />
+    <Compile Include="Interface\IDsoAccount.cs" />
+    <Compile Include="Model\ExpenseClaims.cs" />
+    <Compile Include="Interface\IDsoExpenseClaim.cs" />
+    <Compile Include="Interface\IDsoJournal.cs" />
+    <Compile Include="Interface\IDsoJournalLine.cs" />
     <Compile Include="Model\InventoryPrice.cs" />
+    <Compile Include="Model\Invoices.cs" />
     <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\JournalLines.cs" />
+    <Compile Include="Model\Journals.cs" />
     <Compile Include="Model\LineAmountType.cs" />
     <Compile Include="Model\Journal.cs" />
     <Compile Include="Model\JournalLine.cs" />
     <Compile Include="Model\LineItem.cs" />
+    <Compile Include="Model\LineItems.cs" />
     <Compile Include="Model\Links.cs" />
     <Compile Include="Model\ManualJournal.cs" />
     <Compile Include="Model\ManualJournalLineItem.cs" />
     <Compile Include="Model\ModelSerializer.cs" />
     <Compile Include="Model\ModelTreeNavigator.cs" />
+    <Compile Include="Model\Option.cs" />
+    <Compile Include="Model\Options.cs" />
     <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\Payments.cs" />
     <Compile Include="Model\Phone.cs" />
+    <Compile Include="Model\Phones.cs" />
     <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\Receipts.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\Reporting\AgedPayablesByContactReport.cs" />
     <Compile Include="Model\Reporting\AgedReceivablesByContactReport.cs" />
@@ -99,8 +156,10 @@
     <Compile Include="Model\Reporting\ReportQueryDescription.cs" />
     <Compile Include="Model\Reporting\TrialBalanceReport.cs" />
     <Compile Include="Model\TaxRate.cs" />
+    <Compile Include="Model\TrackingCategories.cs" />
     <Compile Include="Model\TrackingCategory.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="OAuth\Consumer\ConsumerRequestRunner.cs" />
     <Compile Include="OAuth\Consumer\IMessageLogger.cs" />
     <Compile Include="OAuth\Framework\MissingTokenException.cs" />

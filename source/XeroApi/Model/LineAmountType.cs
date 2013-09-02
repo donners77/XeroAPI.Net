@@ -2,7 +2,7 @@ using System;
 
 namespace XeroApi.Model
 {
-    public enum LineAmountType
+    public enum ELineAmountType
     {
         NoTax = 0,
         Inclusive,

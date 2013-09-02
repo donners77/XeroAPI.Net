@@ -1,8 +1,9 @@
 using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Account : EndpointModelBase
+    public class Account : EndpointModelBase, IDsoAccount
     {
         [ItemId]
         public Guid AccountID { get; set; }
@@ -40,10 +41,5 @@ namespace XeroApi.Model
         {
             return string.Format("Account:{0}", Code);
         }
-    }
-
-    
-    public class Accounts : ModelList<Account>
-    {
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Receipt : EndpointModelBase, IAttachmentParent
+    public class Receipt : EndpointModelBase, IAttachmentParent, IDsoReceipt
     {
         [ItemId]
         public Guid ReceiptID { get; set; }
@@ -17,9 +18,9 @@ namespace XeroApi.Model
         [ReadOnly]
         public string ExternalLinkProviderName { get; set; }
         
-        public User User { get; set; }
+        public IDsoUser User { get; set; }
         
-        public Contact Contact { get; set; }
+        public IDsoContact Contact { get; set; }
         
         public DateTime? Date { get; set; }
 
@@ -31,9 +32,9 @@ namespace XeroApi.Model
         
         public string Reference { get; set; }
         
-        public LineAmountType LineAmountTypes { get; set; }
+        public ELineAmountType LineAmountTypes { get; set; }
 
-        public LineItems LineItems { get; set; }
+        public IDsoLineItems LineItems { get; set; }
 
         [ReadOnly]
         public decimal? SubTotal { get; set; }
@@ -47,9 +48,4 @@ namespace XeroApi.Model
         [ReadOnly]
         public bool HasAttachments { get; set; }
     }
-
-    public class Receipts : ModelList<Receipt>
-    {
-    }
-
 }

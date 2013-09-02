@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class User : EndpointModelBase
+    public class User : EndpointModelBase, IDsoUser
     {
         [ItemId]
         public Guid? UserID { get; set; }
@@ -26,9 +27,4 @@ namespace XeroApi.Model
             get { return string.Concat(FirstName, " ", LastName); }
         }
     }
-
-    public class Users : ModelList<User>
-    {
-    }
-
 }

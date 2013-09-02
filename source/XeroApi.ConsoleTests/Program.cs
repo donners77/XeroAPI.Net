@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using DevDefined.OAuth.Utility;
+using XeroApi.Interface;
 using XeroApi.Model;
 using XeroApi.Model.Reporting;
 
@@ -234,7 +235,7 @@ namespace XeroApi.ConsoleApp
                     Contact = new Contact {Name = "Mojo Coffee"},
                     User = anyUserWithAnId,
                     Date = DateTime.Today.Date,
-                    LineAmountTypes = LineAmountType.Inclusive,
+                    LineAmountTypes = ELineAmountType.Inclusive,
                     LineItems = new LineItems
                         {
                             new LineItem
@@ -383,7 +384,7 @@ namespace XeroApi.ConsoleApp
             Console.WriteLine("Creating an invoice that should cause a validation error...");
             var createdInvoice = repository.Create(invoiceToCreate);
 
-            if (createdInvoice.ValidationStatus == ValidationStatus.ERROR)
+            if (createdInvoice.ValidationStatus == EValidationStatus.ERROR)
             {
                 foreach (var message in createdInvoice.ValidationErrors)
                 {

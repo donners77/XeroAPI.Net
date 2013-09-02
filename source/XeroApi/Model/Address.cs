@@ -1,9 +1,10 @@
 using System;
 using System.Text;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class Address : ModelBase
+    public class Address : ModelBase, IDsoAddress
     {
         public string AddressType { get; set; }
         
@@ -59,10 +60,5 @@ namespace XeroApi.Model
             return sb.ToString().TrimEnd(' ');
 
         }
-    }
-
-    
-    public class Addresses : ModelList<Address>
-    {
     }
 }

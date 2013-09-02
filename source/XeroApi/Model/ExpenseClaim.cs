@@ -1,8 +1,9 @@
 ﻿using System;
+using XeroApi.Interface;
 
 namespace XeroApi.Model
 {
-    public class ExpenseClaim : EndpointModelBase
+    public class ExpenseClaim : EndpointModelBase, IDsoExpenseClaim
     {
         [ItemId]
         public Guid ExpenseClaimID { get; set; }
@@ -11,9 +12,9 @@ namespace XeroApi.Model
 
         public DateTime Date { get; set; }
 
-        public User User { get; set; }
+        public IDsoUser User { get; set; }
         
-        public Receipts Receipts { get; set; }
+        public IDsoReceipts Receipts { get; set; }
 
         [ReadOnly]
         public DateTime CreatedDateUTC { get; set; }
@@ -29,9 +30,5 @@ namespace XeroApi.Model
 
         [ReadOnly]
         public decimal Total { get; set; }
-    }
-
-    public class ExpenseClaims : ModelList<ExpenseClaim>
-    {
     }
 }
